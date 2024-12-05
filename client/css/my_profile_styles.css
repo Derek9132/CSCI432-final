@@ -1,0 +1,77 @@
+html {
+    background-color: #1a1a21;
+    margin: 2em;
+    color: #cad4da;
+    font-family: monospace;
+}
+
+
+.profile {
+    text-align: center;
+}
+
+.header1 {
+    background-color: #2f2f36;
+}
+.about { 
+    background-color:  #2f2f36;
+}
+
+.address {
+    background-color: #2f2f36;
+}
+
+.card {
+    background-color:  #2f2f36;  
+    border-style: solid;
+    border-radius: 20px;
+    padding: 1em;
+    margin: 1em;
+}
+
+.normal-dot {
+    height: 12px;
+    width: 12px;
+    background-color: #0bb10b;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.chairman-dot {
+    height: 12px;
+    width: 12px;
+    background-color: #1fa2ca;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.pending-dot {
+    height: 12px;
+    width: 12px;
+    background-color:  #FF5733 ;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.pending-buttons {
+    background-color:  #2f2f36;
+    color: #cad4da;
+    font-family: monospace;
+}
+
+button.pending-buttons:hover {
+    background-color: #3d3d46;
+    color: #ffffff;
+}
+
+.status-container {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 6px;
+}
+
+div.card:hover {
+    background-color: #3d3d46;
+    color: #ffffff;
+}

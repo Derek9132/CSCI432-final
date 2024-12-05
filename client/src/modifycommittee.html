@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../css/committeestyle.css" />
+    <title>Modify Committees</title>
+  </head>
+
+  <body>
+    <div class="modify-committee">
+      <!--https://stackoverflow.com/questions/41192540/how-to-make-td-clickable-->
+      <!--Section with committees-->
+      <div class="committee-list">
+        <form>
+          <div>
+            <span style="text-align: left; font-size: 3em">Committees</span>
+          </div>
+          <table class="fixed-header">
+            <thead class="header">
+              <tr></tr>
+            </thead>
+            <tbody class="scrollable">
+              <tr>
+                <td>Web</td>
+              </tr>
+              <tr>
+                <td>Programming</td>
+              </tr>
+            </tbody>
+          </table>
+        </form>
+      </div>
+      <!--Section with user names-->
+      <div class="create-committee">
+        <form>
+          <div><span style="text-align: left; font-size: 3em">Users</span></div>
+          <table class="fixed-header">
+            <thead class="header">
+              <tr></tr>
+            </thead>
+            <tbody class="scrollable">
+              <tr>
+                <td>Ryan</td>
+                <td>Lee</td>
+                <td><input type="checkbox" name="user1" value="user1" /></td>
+              </tr>
+              <tr>
+                <td>Lynelle</td>
+                <td>Chen</td>
+                <td><input type="checkbox" name="user2" value="user2" /></td>
+              </tr>
+            </tbody>
+          </table>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

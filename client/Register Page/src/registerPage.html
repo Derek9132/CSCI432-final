@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>New User Registration</title>
+        <link rel="stylesheet" href="../css/registerPage.css">
+        <script src="../script/registerPage.js" defer></script>
+    </head>
+
+    <body>
+        <a id="back" href="../../index.html">Back</a>
+        <div id="profileDiv">
+            <form id="profileForm" action="http://localhost:8080/register" method="POST">
+                <input type="text" name="fname" placeholder="First Name" required>
+                <input type="text" name="lname" placeholder="Last Name" required>
+                <input type="text" name="username" placeholder="username" required>
+                <input type="password" name="password" placeholder="password" required>
+                <button id="submit" name="submit">Register</button>
+            </form>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,128 @@
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: center;
+    margin-top: 5%;
+}
+
+.committee-link {
+    width: 80%;
+    height: 40%;
+    margin: auto;
+    border-color: #cadfda;
+    border-style: solid;
+    text-align: center;
+    align-items: center;
+}
+
+.major-link {
+    font-size: 96px;
+    vertical-align: auto;
+}
+
+html {
+    background-color: #1a1a21 !important;
+    margin: 2em;
+    font-size: 100%;
+}
+
+body {
+    color: #cad4da;
+    font-family: monospace;
+    /*display: flex; */
+    text-align: center;
+    padding-top: 1em;
+    font-size: 20px;
+}
+
+a {
+    color: #cad4da;
+    -o-transition:color .2s ease-out, background 1s ease-in;
+    -ms-transition:color .2s ease-out, background 1s ease-in;
+    -moz-transition:color .2s ease-out, background 1s ease-in;
+    -webkit-transition:color .2s ease-out, background 1s ease-in;
+    transition:color .2s ease-out, background 1s ease-in;
+}
+
+a:hover {
+    color: pink;
+}
+
+
+::selection {
+    color: #edeef0;
+    background: rgb(171, 14, 106);
+}
+
+.footer {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0;
+    justify-content: space-between;
+}
+
+.navigation{
+    width: 5em;
+    height: 5em;
+    border-color: #cad4da;
+    background-color: #1a1a21;
+    color: #cad4da;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+}
+
+.navigation:hover{
+    background-color: rgb(171, 14, 106);
+}
+
+.navigation .settings{
+    margin-right: auto;
+}
+
+.navigation .back{
+    margin-left: auto;
+    background-color: darkred;
+}
+
+.create-committee{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: center;
+}
+
+.modify-committee{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+}
+
+.fixed-header thead{
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.header th{
+    border-style: solid;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.scrollable {
+    overflow-y: scroll;
+    max-height: 75%;
+}
+
+.submit-committee{
+    background-color: green;
+    color:#cad4da;
+    float: right;
+}

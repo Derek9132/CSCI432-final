@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <title>Dashboard</title>
+</head>
+
+    <body>
+        <div class = "menubar">
+            
+            <a class = "active" href="dashboard.html">Home</a>
+            <a href = "dashboard.html">Meeting Rooms</a>
+            <a href = "current_motions.html">Current Motions</a>
+            <a href = "dashboard.html">Past Motions</a>
+        </div>
+
+        <div class = "content">
+            <button class="dash-buttons" type="button">New Commitee</button>
+            <button class="dash-buttons" type="button">Join Commitee</button>
+        </div>
+
+
+        
+
+    </body>

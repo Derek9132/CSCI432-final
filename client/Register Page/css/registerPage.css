@@ -1,0 +1,62 @@
+* {
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+
+body {
+    background-color:midnightblue;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    overflow-y: hidden;
+}
+
+#back {
+    margin: 30px 60px;
+    text-decoration: none;
+    color: white;
+}
+
+#back::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    height: 2px;
+    background-color: white;
+    box-sizing: border-box;
+    width: 180px;
+}
+
+#profileForm {
+    border-radius: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+    height: 600px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 70px;
+    background-color: black;
+}
+
+#profileForm > input {
+    border: 1px solid gray;
+    border-radius: 5px;
+    width: 80%;
+    height: 30px;
+    padding: 5px 10px;
+    background-color: darkgray;
+
+}
+
+#profileForm > Button {
+    padding: 5px 5px;
+    border: 1px solid darkgray;
+    text-align: center;
+    border-radius: 5px;
+}

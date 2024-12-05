@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatroom</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const socket = io();
+            const motionID = window.location.pathname.split('/').pop();
+            const chatBox = document.getElementById('chatBox');
+            const messageInput = document.getElementById('messageInput');
+            const sendButton = document.getElementById('sendButton');
+            const senderInput = document.getElementById('senderInput');
+
+            socket.emit('joinRoom', motionID);
+
+            sendButton.addEventListener('click', () => {
+                const message = messageInput.value;
+                const sender = senderInput.value;
+                socket.emit('chatMessage', { motionID, sender, message });
+                messageInput.value = '';
+            });
+
+            socket.on('message', ({ sender, message }) => {
+                const messageElement = document.createElement('div');
+                const senderElement = document.createElement('strong');
+                senderElement.textContent = sender + ': ';
+                messageElement.appendChild(senderElement);
+                messageElement.appendChild(document.createTextNode(message));
+                chatBox.appendChild(messageElement);
+            });
+
+            socket.on('messageHistory', (messages) => {
+                messages.forEach(({ sender, message }) => {
+                    const messageElement = document.createElement('div');
+                    const senderElement = document.createElement('strong');
+                    senderElement.textContent = sender + ': ';
+                    messageElement.appendChild(senderElement);
+                    messageElement.appendChild(document.createTextNode(message));
+                    chatBox.appendChild(messageElement);
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="chatBox"></div>
+    <input type="text" id="senderInput" placeholder="Your name">
+    <input type="text" id="messageInput" placeholder="Your message">
+    <button id="sendButton">Send</button>
+</body>
+</html>
