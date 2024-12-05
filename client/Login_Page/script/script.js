@@ -68,7 +68,7 @@ if (window.location.pathname.includes("index.html")) {
                 console.log(JSON.stringify(currentUser));
                 sessionStorage.setItem("userInfo", JSON.stringify(currentUser));
 
-                window.location.replace("http://127.0.0.1:5500/client/index.html");
+                window.location.replace("../../index.html");
 
             }
 
