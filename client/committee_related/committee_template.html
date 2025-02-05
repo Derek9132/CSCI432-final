@@ -10,22 +10,26 @@
 
 <body>
 
+    <!-- don't need for now; want to integrate into mini window so yea
     <div class = "menubar">
             <a href="dashboard.html">Home</a>
             <a href = "dashboard.html">Meeting Rooms</a>
             <a href = "current_motions.html">Current Motions</a>
             <a href = "dashboard.html">Past Motions</a>
     </div>
-
-    <div class = "committee_header" id="committeeTitle">
-        Committee Name
+-->
+    <div style="display: flex; flex-direction: column;">
+        <div class = "committee_header" id="committeeTitle">
+            <h1></h1>
+        </div>
+        <h1 id="votesToPass"></h1>
     </div>
 
     <div class = "committee_body">
 
         <div class = grid_item>
             <div class = "team_list">
-                <h2>Project Members</h2>
+                <h2>Committee Members</h2>
                 <input type="search" id="searchInput" placeholder="Find Members">
                 <div class="members" id="membersList">
                     <!--members_list.js goes here-->
@@ -33,8 +37,13 @@
             </div>
         </div>
 
+        
+
         <div class = "grid_item">
+            <p></p>
+            <h2>Current Motions</h2>
             <div class = "table">
+                <button id="addMotionButton" style="height: 50px; width: 20%;" onclick="openModal('modalNewMotion')">Add Motion</button>
                 <table id="motionsTable" class="display" style="width:100%">
                     <thead>
                         <tr>
@@ -42,6 +51,8 @@
                             <th>Description</th>
                             <th>Creator</th>
                             <th>Date</th>
+                            <th>Upvotes</th>
+                            <th>End voting</th>
                         </tr>
                     </thead>
                 
@@ -55,11 +66,54 @@
                             <th>Description</th>
                             <th>Creator</th>
                             <th>Date</th>
+                            <th>Upvotes</th>
+                            <th>End voting</th>
                         </tr>
                     </tfoot>
+                </table>
+
+                <p></p>
+                <h2>Past Motions</h2>
+                <table id="pastMotionsTable" class="display" style="width: 100%">
+                    <thead>
+                        <tr>
+                            <th>Motion</th>
+                            <th>Description</th>
+                            <th>Creator</th>
+                            <th>Decision</th>
+                        </tr>
+                    </thead>
+                
+                    <tbody id = "pastBody">
+                        <!--motions_table.js goes here-->
+                    </tbody>
+        
+                    <tfoot>
+                        <tr>
+                            <th>Motion</th>
+                            <th>Description</th>
+                            <th>Creator</th>
+                            <th>Decision</th><!--temp got rid of date/upvote cols-->
+                        </tr>
+                    </tfoot>
+                </table>
             </div>
         </div>
-        
+    </div>
+
+    <div id="modalNewMotion" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modalNewMotion')"
+              >&times;</span>
+        <h1>New Motion</h1>
+        <form id="createMotionForm">
+            <label for="motionName">Motion name</label>
+            <input type="text" id="motionName" name="motionName" required>
+            <label for="motionDesc">Motion description</label>
+            <input type="text" id="motionDesc" name="motionDesc">
+        </form>
+        <button id="submitMotion">Submit Motion</button>
+        </div>
     </div>
 
 </body>

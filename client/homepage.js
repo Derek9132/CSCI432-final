@@ -20,7 +20,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.getElementById("loginButton").addEventListener("click", (event) => {
     if (event.target.textContent == "Login") {
-        window.location.replace("Login_Page/src/index.html");
+        window.location.href = "Login_Page/src/index.html";
+        //window.location.href = "http://127.0.0.1:5500/client/Login_page/src/index.html";
     }
     else {
         sessionStorage.removeItem("userInfo");
@@ -30,10 +31,12 @@ document.getElementById("loginButton").addEventListener("click", (event) => {
 
 document.getElementById("registerButton").addEventListener("click", (event) => {
     window.location.href = "Login_Page/src/register.html";
+    //window.location.href = "http://127.0.0.1:5500/client/Login_page/src/register.html";
 });
 
 document.getElementById("dashboardRedirect").addEventListener("click", (event) => {
     window.location.href = "Dashboard/dashboard.html";
+    //window.location.href = "http://127.0.0.1:5500/client/Dashboard/dashboard.html";
 });
 
 

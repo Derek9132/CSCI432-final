@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comments</title>
+    <link rel="stylesheet" href="comments.css">
+    <script>
+        const server = "http://localhost:8080";
+
+        let currentUserData = JSON.parse(sessionStorage.getItem("userInfo"));
+
+        let currentUserID = currentUserData.userData.key;
+        let currentUserFName = currentUserData.userData.fname;
+        let currentUserLName = currentUserData.userData.lname;
+        
+        const queryParams = new URLSearchParams(window.location.search);
+        const motionKey = queryParams.get('motionKey');
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const chatBox = document.getElementById('chatBox');
+            const messageInput = document.getElementById('messageInput');
+            const sendButton = document.getElementById('sendButton');
+
+            // Fetch and display existing comments
+            console.log(motionKey, "pe");
+            fetch(`${server}/api/comments/${motionKey}`)
+                .then(response => response.json())
+                .then(messages => {
+                    messages.forEach(({ senderName, message }) => {
+                        const messageElement = document.createElement('div');
+                        messageElement.setAttribute("class", "chatMessage");
+                        const senderElement = document.createElement('strong');
+                        senderElement.textContent = senderName + ': ';
+                        messageElement.appendChild(senderElement);
+                        messageElement.appendChild(document.createTextNode(message));
+                        chatBox.appendChild(messageElement);
+                    });
+                });
+
+            // Post a new comment
+            sendButton.addEventListener('click', () => {
+                const message = messageInput.value;
+                const senderName = `${currentUserFName} ${currentUserLName}`;
+                const userID = currentUserID;
+                const motionID = motionKey;
+                const timestamp = new Date().toISOString().slice(0, 19).replace('T', ' ');
+
+
+                fetch(`${server}/api/post_comment/${motionKey}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ userID, senderName, message, motionID, timestamp })
+                })
+                .then(response => response.json())
+
+                .then(({ senderName, message }) => {
+                    const messageElement = document.createElement('div');
+                    messageElement.setAttribute("class","chatMessage");
+                    const senderElement = document.createElement('strong');
+                    senderElement.textContent = senderName + ': ';
+                    messageElement.appendChild(senderElement);
+                    messageElement.appendChild(document.createTextNode(message));
+                    chatBox.appendChild(messageElement);
+                    messageInput.value = '';
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="chatBox"></div>
+    <div id="inputBox" style="display: flex; gap: 20px; position: fixed; bottom: 0px; margin-bottom: 30px;">
+        <input type="text" id="messageInput" placeholder="Your message">
+        <button id="sendButton">Send</button>
+    </div>
+</body>
+</html>

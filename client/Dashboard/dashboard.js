@@ -4,6 +4,8 @@ const server = "http://localhost:8080";
 
 let user_key = 0;
 
+
+
 document.addEventListener("DOMContentLoaded", async () => {
     const user = JSON.parse(sessionStorage.getItem("userInfo"));
 
@@ -16,11 +18,12 @@ document.addEventListener("DOMContentLoaded", async () => {
         // populate profile
         console.log(user.userData);
 
-        document.getElementById("fname").textContent = user.userData.fname;
+        document.getElementById("flname").textContent = "Name: "+ user.userData.fname + " " + user.userData.lname;
 
-        document.getElementById("lname").textContent = user.userData.lname;
+        // document.getElementById("lname").textContent = user.userData.lname;
+        document.getElementById('username').textContent = "Username: "+user.userData.username;
 
-        document.getElementById("emailtext").textContent = user.userData.email;
+        document.getElementById("emailtext").textContent = "Email: " +user.userData.email;
 
         // populate committees
 
@@ -68,7 +71,8 @@ document.getElementById("submitCommittee").addEventListener("click", async (even
         body: JSON.stringify({
             cname: document.getElementById("committeeName").value,
             cpassword: document.getElementById("committeePassword").value,
-            currentUserKey: user_key
+            currentUserKey: user_key,
+            cVotesNeeded: document.getElementById("committeeVotesToPass").value
         })
     });
     if (response.ok) {
@@ -128,13 +132,14 @@ async function renderCommittees(committeeKey, committeeName) {
     // build html element
     const committeeLi = document.createElement("li");
 
-    const committeeA = document.createElement("a");
-    committeeA.textContent = `${committeeName}`;
+    const committeeButton = document.createElement("button");
+    committeeButton.textContent = `${committeeName}`;
+    committeeButton.className = "committee-buttons";
+    committeeButton.onclick = () => {
+        window.location.href = `../committee_related/committee_template.html?committeeKey=${committeeKey}`;
+    };
 
-    // send committeeKey to server
-    committeeA.setAttribute('href',`../committee_related/committee_template.html?committeeKey=${committeeKey}`);
-
-    committeeLi.appendChild(committeeA);
+    committeeLi.appendChild(committeeButton);
 
     // add to committee container
     document.getElementById("committeeEntries").appendChild(committeeLi);

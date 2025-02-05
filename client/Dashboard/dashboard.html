@@ -9,12 +9,6 @@
   </head>
 
   <body>
-    <!--<div class="menubar">
-      <a class="active" href="dashboard.html">Home</a>
-      <a href="dashboard.html">Meeting Rooms</a>
-      <a href="current_motions.html">Current Motions</a>
-      <a href="dashboard.html">Past Motions</a>
-    </div>-->
 
     <header class="menubar">
       <button class="menuButton" id="button0" data-target="panel0">Profile</button>
@@ -24,9 +18,18 @@
     </header>
 
     <div class="contentPanel" id="panel0">
-      <p id="fname">First name: N/A</p>
-      <p id="lname">Last name: N/A</p>
+      <p id="flname">First name: N/A</p>
+      <p id="username">Username: N/A</p>
       <p id="emailtext">Email: N/A</p>
+      <div class = "descriptionPanel">
+        <h1>Bio:</h1>
+
+        <div class="textPanel">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            Optio nam similique ratione veritatis maxime. 
+            Sunt consequuntur non enim ducimus, deleniti odio aliquam quas hic necessitatibus deserunt, fuga quae quidem! Optio!</p>
+        </div>
+      </div>
     </div>
 
     <div class="contentPanel" id="panel1">
@@ -40,9 +43,7 @@
             Join Committee
           </button>
         </div>
-
         <div id="committeeEntries">
-
         </div>
       </div>
     </div>
@@ -76,6 +77,9 @@
           />
           <label for="committeePassword">Committee Code:</label>
           <input type="text" id="committeePassword" name="committeePassword" placeholder="Enter a join code for the committee" required>
+
+          <label for="committeeVotesToPass">Votes needed to pass a motion: </label>
+          <input type="number" id="committeeVotesToPass" name="committeeVotesToPass" placeholder="3" required style="width: 10%;">
 
           <!-- Input for inviting users -->
           <!--<label for="inviteUser">Invite User:</label>

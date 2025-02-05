@@ -15,33 +15,13 @@ const server = "http://localhost:8080";
 //     }
 // };
 
-// app.get('/api/get-user', (req, res) => {
-//     courseCache = {};
-//     cacheKeys = [];
-//     res.json({message: 'Cache has been cleared'});
-//   });
+/** NOTES AND TIPS **/
 
-
-// const presetUsername = "admin";
-// const presetPassword = "1234";
-
-// const checkUsers = async (filePath, username, password) => {
-//     try {
-//         const users = await readJsonFile(filePath); 
-        
-        
-//         for (const key in users) {
-//             const user = users[key];
-//             if (user.username === username && user.password === password) {
-//                 return true; // Credentials are valid
-//             }
-//         }
-//         return false; // No match found
-//     } catch (error) {
-//         console.error('Failed to check credentials:', error);
-//         throw error; // Optionally re-throw for higher-level error handling
-//     }
-// };
+// Use headers and body in fetch only for POST and PUT
+// default method for fetch is GET
+// For DELETE, only need to specify the method (method: DELETE)
+// Use response code sent from server to make conditionals
+// Use console.log often to see how the data has been received from server
 
 if (window.location.pathname.includes("index.html")) {
     // Code specific to index.html
@@ -68,7 +48,8 @@ if (window.location.pathname.includes("index.html")) {
                 console.log(JSON.stringify(currentUser));
                 sessionStorage.setItem("userInfo", JSON.stringify(currentUser));
 
-                window.location.replace("../../index.html");
+                window.location.href = "../../index.html";
+                //window.location.replace("http://127.0.0.1:5500/client/index.html");
 
             }
 

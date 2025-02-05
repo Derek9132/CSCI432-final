@@ -14,15 +14,16 @@ registerButton.addEventListener("click", async (event) => {
     formData.append("profileImage", document.getElementById("profileImage").files[0]);
     
     try {
-        console.log("sending data"); // prints 
+        console.log("sending data"); 
         const response = await fetch(`${server}/api/register`, { 
             method: "POST",
             body: formData
         });
         
         if (response.ok) {
-            console.log("sent and received data"); // does not print
-            window.location.replace("../Login_Page/src/index.html");   
+            console.log("sent and received data"); 
+            window.location.replace("../src/index.html"); // redirect to login
+            //window.location.replace("http://127.0.0.1:5500/client/Login_page/src/index.html");
         }
         else {
             var errorCode = document.createElement("p");
